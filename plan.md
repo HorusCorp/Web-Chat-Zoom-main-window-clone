@@ -38,7 +38,7 @@
 --------------------------------------------------------------------------------------------------------------------------------------------------------
 
 # creation des views
-- créer dans le dossier views  uen fichier room.ejs et créer un basic html template
+- créer dans le dossier views  un fichier room.ejs et créer un basic html template
 - npm i ejs
 
 - Ajouter "app.set('view engine', 'ejs')" dans server.js,

@@ -72,7 +72,7 @@ const connectToNewUser = (userId, stream) => {
 const addVideoStream = (video, stream) => {
     video.srcObject = stream;
     //then when we load all that data we want to play the video: 
-    video.addEventListener('loadmetadata', () => {
+    video.addEventListener('loadedmetadata', () => {
         video.play();
     })
     //envoyer la video au html / ejx file
