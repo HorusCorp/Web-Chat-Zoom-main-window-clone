@@ -21,23 +21,21 @@ navigator.mediaDevices.getUserMedia({
 
     // Quand l'autre utilisateur nous reponds , on l'ajoute au stream video
     peer.on('call', call => {
-        call.anwser(stream)
+        call.answer(stream)
         const video = document.createElement('video')
         call.on('stream', userVideoStream =>{
             addVideoStream(video, userVideoStream)
         })
     })
-
-    socket.on('user-connected' , (userId) => {
+        socket.on('user-connected' , (userId) => {
         connectToNewUser(userId, stream);
-    })
+})
+
     let msg = $('input')
-
-
     // Ici on va demander au document html de detecter la pression sur la touche entrer / 13 == touche enter
     $('html').keydown((e) => {
         if (e.which == '13' && msg.val().length !== 0) {
-            console.log(msg.val())
+            // console.log(msg.val())
             socket.emit('message', msg.val());
             msg.val('')
         }
@@ -62,10 +60,11 @@ peer.on('open', id => {
 const connectToNewUser = (userId, stream) => {
     const call = peer.call(userId, stream)
     const video = document.createElement('video')
+//quand je reçois le stream de quelqun je l'ajoute
     call.on('stream', userVideoStream => {
         addVideoStream(video, userVideoStream)
     })
-   console.log('new user :' + userId);
+    console.log('new user :' + userId);
 }
 
 
@@ -92,11 +91,11 @@ const muteUnmute = () => {
     if (enabled) {
         myVideoStream.getAudioTracks()[0].enabled = false;
         setUnmuteButton();
-        // console.log('video muted')
+        console.log('video muted')
     } else {
         setMuteButton();
         myVideoStream.getAudioTracks()[0].enabled = true;
-        // console.log('video unmuted')
+        console.log('video unmuted')
     }
 }
 
@@ -120,13 +119,13 @@ const setUnmuteButton = () => {
 const playStop = () => {
     let enabled = myVideoStream.getVideoTracks()[0].enabled;
     if (enabled) {
+        setStopVideo()
         myVideoStream.getVideoTracks()[0].enabled = false;
+        console.log('video stopped')
+    } else {
+        myVideoStream.getVideoTracks()[0].enabled = true;
         setPlayVideo()
         console.log('video start')
-    } else {
-        setStopVideo()
-        myVideoStream.getVideoTracks()[0].enabled = true;
-        console.log('video stopped')
     }
 }
 
