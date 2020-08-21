@@ -1,0 +1,135 @@
+body{
+    margin:0;
+    padding:0;
+    height: 100vh;
+    max-height: 100vh;
+    overflow-y: hidden;
+}
+
+
+#video-grid {
+    display: flex;
+    justify-content: center;
+}
+video{
+    height: 300px;
+    width: 400px;
+}
+
+.main{
+    height: 100vh;
+    display: flex;
+}
+
+.main__left{
+    flex:0.8;
+    display: flex;
+    flex-direction: column;
+}
+
+.main__right{
+    display: flex;
+    flex-direction: column;
+    flex:0.2;
+    background:#333;
+    color: white;
+    text-align: center;
+    justify-content: space-between;
+    border-left: 1px solid rgba(255,255,255,0.2);
+}
+.main__videos{
+    flex-grow: 1;
+    background:#000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.main__controls{
+    background:#333;
+    color: #D2D2D2;
+    padding:5px;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+.main__controls__block{
+    display: flex;
+}
+.main__controls__block:nth-child(3){
+    justify-content: flex-end;
+}
+.main__controls__button{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 10px;
+    min-width: 80px;
+    cursor: pointer;
+}
+.mute,.unmute,.main__controls__video__off,.main__controls__video,.main__controls__security,.main__controls__participants,.main__controls__chat{
+    width: 30px;
+    height: 30px;
+    background-size: cover;
+    background-position: center;
+}
+.mute{
+    background-image: url(mic.png);
+}
+.unmute{
+    background-image: url(muted.png);
+}
+.main__controls__video__off{
+    background-image: url(videooff.png);
+}
+.main__controls__video{
+    background-image: url(video.png);
+}
+.main__controls__security{
+    background-image: url(security.png);
+}
+.main__controls__participants{
+    background-image: url(users.png);
+}
+.main__controls__chat{
+    background-image: url(chat.png);
+}
+.main__controls__button:hover{
+    background-color:#444444 ;
+    border-radius: 5px;
+}
+.leave_meeting{
+    color: #EB534B;
+}
+
+.main__header{
+    color: #F5F5F5;
+    text-align: center;
+}
+.main__chat__window{
+    flex-grow: 1;
+    overflow-y: scroll;
+    height: 88.6vh;
+    background-color:#444444 ;
+}
+
+
+.main__message_container{
+    padding:22px 12px;
+    display:flex;
+}
+
+.main__message_container input{
+    flex-grow: 1;
+    background-color: transparent;
+    border:none;
+    color: #F5F5F5;
+}
+ul{
+    list-style: none;
+    text-align: left;
+    padding-left: 15px;
+}
+b{
+    color: #EB534B;
+}
